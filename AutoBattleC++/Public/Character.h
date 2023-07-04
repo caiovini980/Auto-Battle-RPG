@@ -27,7 +27,7 @@ public:
 
     bool TakeDamage(float amount);
 
-    int getIndex(vector<Types::GridBox*> v, int index);
+    int getIndex(std::vector<Types::GridBox*> v, int index);
 
     void Die();
 

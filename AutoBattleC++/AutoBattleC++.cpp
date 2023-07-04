@@ -1,12 +1,12 @@
-// AutoBattleC++.cpp : Este arquivo contém a função 'main'. A execução do programa começa e termina ali.
-//
-#include "BattleField.h"
-#include <iostream>
+#include "./Public/Managers/GameManager.h"
 
 int main()
 {
-    BattleField* battleField = new(BattleField);
-    battleField->Setup();
+    system("cls");
+    std::unique_ptr<GameManager> Manager = std::make_unique<GameManager>();
+    Manager->CreateNewGame();
+
+    Manager.reset();
 }
 
 

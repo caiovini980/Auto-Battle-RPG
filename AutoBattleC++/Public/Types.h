@@ -1,8 +1,6 @@
 #pragma once
 class Types
 {
-public:
-
     struct GridBox
     {
         int xIndex;
@@ -10,6 +8,7 @@ public:
         bool ocupied;
         int Index;
 
+    public:
         GridBox(int x, int y, bool ocupied, int index)
         {
             xIndex = x;
