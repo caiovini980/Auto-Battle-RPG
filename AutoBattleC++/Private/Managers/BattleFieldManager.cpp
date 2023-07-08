@@ -23,11 +23,33 @@ void BattleFieldManager::CreateBattlefield()
         for (int lineIndex = 0; lineIndex < amountOfLines; lineIndex++) // Y
         {
             std::shared_ptr<BattlefieldCell> newCell = std::make_shared<BattlefieldCell>(columnIndex, lineIndex, false);
-            //battlefield.assign(1, newCell);
+            battlefield.insert(battlefield.begin(), newCell);
 
             printf("[ ]\t");
         }
 
         printf("\n\n\n");
     }
+}
+
+std::shared_ptr<BattlefieldCell> BattleFieldManager::GetRandomCell()
+{
+    int randomPositionX = 1 + (std::rand() % amountOfColumns - 1);
+    int randomPositionY = 1 + (std::rand() % amountOfLines - 1);
+
+    //printf("Searching for cell [%i, %i]\n\n", randomPositionX, randomPositionY);
+
+    for (int i = 0; i < battlefield.size() + 1; i++)
+    {
+        std::shared_ptr<BattlefieldCell> cell = battlefield[i];
+        //printf("Scanning cell [%i, %i]\n", cell->xIndex, cell->yIndex);
+
+        if (cell->xIndex == randomPositionX && cell->yIndex == randomPositionY)
+        {
+            return cell;
+        }
+    }
+
+    //printf("\nCan't find cell [%i, %i]\n", randomPositionX, randomPositionY);
+    return nullptr;
 }

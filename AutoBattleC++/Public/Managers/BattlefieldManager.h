@@ -14,6 +14,7 @@ public:
     ~BattleFieldManager();
 
 	void CreateBattlefield();
+	std::shared_ptr<BattlefieldCell> GetRandomCell();
 
 private:
 	int amountOfColumns{}; // X
