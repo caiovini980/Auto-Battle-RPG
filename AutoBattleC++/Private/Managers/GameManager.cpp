@@ -36,33 +36,39 @@ void GameManager::CreateNewGame()
         std::shared_ptr<BattleFieldManager> battlefieldManager = std::make_shared<BattleFieldManager>(sizeXChoice, sizeYChoice);
         battlefieldManager->CreateBattlefield();
 
-        // get player's and opponent's respective cells
+        // create turn manager
+        std::shared_ptr<TurnManager> turnManager = std::make_shared<TurnManager>();
+
+        // get player's and opponent's respective initial cells
         std::shared_ptr<BattlefieldCell> playerCell = battlefieldManager->GetRandomCell();
         std::shared_ptr<BattlefieldCell> oppponentCell = battlefieldManager->GetRandomCell();
 
-        if (playerCell == nullptr) { printf("player cell is null"); }
-        if (oppponentCell == nullptr) { printf("oppponent cell is null"); }
+        if (playerCell == nullptr) { printf("player cell is null\n"); }
+        if (oppponentCell == nullptr) { printf("oppponent cell is null\n"); }
 
         printf("Player cell at point [%i, %i]\n", playerCell->xIndex, playerCell->yIndex);
         printf("Opponent cell at point [%i, %i]\n", oppponentCell->xIndex, oppponentCell->yIndex);
+        
+        // get first turn
+        printf("\nFirst turn is: %i\n", turnManager->GetCurrentTurn());
 
-        std::cin.get();
+        // execute game
+        do
+        {
+            ExecuteGame();
+        } while (!gameOver);
+
+
 
         //system("cls");
         //printf("Entering the game...");
         // game loop
-        /*do
-        {
-            ExecuteGame();
-        } while (!gameOver);*/
+        
     
         
     }
 
-    // ask for player's class choice
-    // ask player's choice for battlefield size
-    // initialize battlefield
-    // get random position on the battlefield to spawn the characters
+    
     // execute turns
         // each turn, each character can only execute one action (move, attack, regen health, etc)
 }

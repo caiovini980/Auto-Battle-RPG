@@ -3,7 +3,9 @@
 #include <string>
 #include <memory>
 #include <cstdlib>
+
 #include "BattlefieldManager.h"
+#include "TurnManager.h"
 #include "../BattlefieldCell.h"
 
 class GameManager
