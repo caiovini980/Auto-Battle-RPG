@@ -3,6 +3,7 @@
 GameManager::GameManager()
 {
     std::cout << "Created a new Game Manager!\n";
+    //std::srand(1);// start seed
 }
 
 GameManager::~GameManager()
@@ -34,14 +35,29 @@ void GameManager::CreateNewGame()
         // create battlefield
         std::shared_ptr<BattleFieldManager> battlefieldManager = std::make_shared<BattleFieldManager>(sizeXChoice, sizeYChoice);
         battlefieldManager->CreateBattlefield();
-    }
 
-    do
-    {
-        ExecuteGame();
-    } while (!gameOver);
+        // get player's and opponent's respective cells
+        std::shared_ptr<BattlefieldCell> playerCell = battlefieldManager->GetRandomCell();
+        std::shared_ptr<BattlefieldCell> oppponentCell = battlefieldManager->GetRandomCell();
+
+        if (playerCell == nullptr) { printf("player cell is null"); }
+        if (oppponentCell == nullptr) { printf("oppponent cell is null"); }
+
+        printf("Player cell at point [%i, %i]\n", playerCell->xIndex, playerCell->yIndex);
+        printf("Opponent cell at point [%i, %i]\n", oppponentCell->xIndex, oppponentCell->yIndex);
+
+        std::cin.get();
+
+        //system("cls");
+        //printf("Entering the game...");
+        // game loop
+        /*do
+        {
+            ExecuteGame();
+        } while (!gameOver);*/
     
-    std::cin.get();
+        
+    }
 
     // ask for player's class choice
     // ask player's choice for battlefield size

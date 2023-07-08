@@ -2,7 +2,9 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <cstdlib>
 #include "BattlefieldManager.h"
+#include "../BattlefieldCell.h"
 
 class GameManager
 {
