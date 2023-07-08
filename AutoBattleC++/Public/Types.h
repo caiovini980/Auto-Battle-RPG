@@ -1,23 +1,6 @@
 #pragma once
 class Types
 {
-    struct GridBox
-    {
-        int xIndex;
-        int yIndex;
-        bool ocupied;
-        int Index;
-
-    public:
-        GridBox(int x, int y, bool ocupied, int index)
-        {
-            xIndex = x;
-            yIndex = y;
-            ocupied = ocupied;
-            Index = index;
-        }
-    };
-
     enum CharacterClass
     {
         Paladin = 1,
