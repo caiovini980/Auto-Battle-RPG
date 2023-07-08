@@ -10,17 +10,38 @@ GameManager::~GameManager()
     std::cout << "Destroyed the Game Manager!\n";
 }
 
-void GameManager::CreateNewGame()
+void GameManager::CreateNewGame() 
 {
-    int choice{};
+    int classChoice{};
+    int sizeXChoice{};
+    int sizeYChoice{};
 
     std::cout << "Creating a new game\n\n";
     std::cout << "Choose a class:\n[1] Paladin\n[2] Warrior\n[3] Cleric\n[4] Archer\n";
-    std::cin >> choice;
+    std::cin >> classChoice;
 
-    CheckInput(choice);
+    CheckClassInput(classChoice);
+
+    system("cls");
+    std::cout << "What's the height of the field? (In units)\n";
+    std::cin >> sizeYChoice;
+
+    std::cout << "\nWhat's the width of the field? (In units)\n";
+    std::cin >> sizeXChoice;
+
+    if (AreFieldInputsValid(sizeXChoice, sizeYChoice))
+    {
+        // create battlefield
+        std::shared_ptr<BattleFieldManager> battlefieldManager = std::make_shared<BattleFieldManager>(sizeXChoice, sizeYChoice);
+        battlefieldManager->CreateBattlefield();
+    }
+
+    do
+    {
+        ExecuteGame();
+    } while (!gameOver);
+    
     std::cin.get();
-
 
     // ask for player's class choice
     // ask player's choice for battlefield size
@@ -30,7 +51,7 @@ void GameManager::CreateNewGame()
         // each turn, each character can only execute one action (move, attack, regen health, etc)
 }
 
-void GameManager::CheckInput(int input)
+void GameManager::CheckClassInput(int & input)
 {
     switch(input)
     {
@@ -54,6 +75,13 @@ void GameManager::CheckInput(int input)
         std::cout << "Select one of the available classes, please.\n";
         break;
     }
+}
+
+bool GameManager::AreFieldInputsValid(int & X, int & Y)
+{
+    // todo: check if inputs are numerals
+
+    return true;
 }
 
 void GameManager::ExecuteGame()
