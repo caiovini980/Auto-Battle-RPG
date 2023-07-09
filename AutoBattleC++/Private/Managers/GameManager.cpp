@@ -56,16 +56,7 @@ void GameManager::CreateNewGame()
         do
         {
             ExecuteGame();
-        } while (!gameOver);
-
-
-
-        //system("cls");
-        //printf("Entering the game...");
-        // game loop
-        
-    
-        
+        } while (!gameOver);        
     }
 
     
