@@ -6,7 +6,13 @@
 
 #include "BattlefieldManager.h"
 #include "TurnManager.h"
+#include "ClassManager.h"
+
 #include "../BattlefieldCell.h"
+#include "../PlayerCharacter.h"
+#include "../OpponentCharacter.h"
+
+#include "../Enums/Classes.h"
 
 class GameManager
 {
@@ -17,11 +23,19 @@ public:
     void CreateNewGame();
 
 private:
+    std::unique_ptr<TurnManager> turnManager;
+    std::unique_ptr<ClassManager> classManager;
+    std::shared_ptr<BattleFieldManager> battlefieldManager;
+
+    std::shared_ptr<BaseClass> playerClass;
+    std::shared_ptr<BaseClass> opponentClass;
+
     bool gameOver{false};   
 
-    bool AreFieldInputsValid(int & X, int & Y);
+    bool AreFieldInputsValid(int& X, int& Y);
 
+    void InitializeManagers();
     void ExecuteGame();
-    void CheckClassInput(int & input);
+    void CheckClassInput(int& input);
 };
 
