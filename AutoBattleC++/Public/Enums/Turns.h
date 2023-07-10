@@ -1,6 +1,8 @@
+#pragma once
+
 enum Turn
 {
-    None = 0,
+    TurnNone = 0,
     PlayerTurn = 1,
     OpponentTurn = 2
 };

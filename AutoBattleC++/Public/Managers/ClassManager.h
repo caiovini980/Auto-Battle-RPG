@@ -1,6 +1,8 @@
 #pragma once
 
-#include "Character.h"
+#include <memory>
+
+#include "../Character.h"
 #include "../Enums/Classes.h"
 #include "../Classes/BaseClass.h"
 #include "../Classes/Archer.h"
@@ -14,7 +16,9 @@ public:
     ClassManager();
     ~ClassManager();
 
-    BaseClass GetClassByClassID(const CharacterClass& classID);
+    std::shared_ptr<BaseClass> GetClassByClassID(const CharacterClass& classID);
+    std::shared_ptr<BaseClass> GetRandomClass();
+    CharacterClass GetClassIdByInteger(const int& number);
 private:
 
 };

@@ -13,6 +13,8 @@ GameManager::~GameManager()
 
 void GameManager::CreateNewGame() 
 {
+    InitializeManagers();
+
     int classChoice{};
     int sizeXChoice{};
     int sizeYChoice{};
@@ -21,9 +23,19 @@ void GameManager::CreateNewGame()
     std::cout << "Choose a class:\n[1] Paladin\n[2] Warrior\n[3] Cleric\n[4] Archer\n";
     std::cin >> classChoice;
 
+    // create player character and give it a class based on player's input
+    std::shared_ptr<PlayerCharacter> player = std::make_shared<PlayerCharacter>();
     CheckClassInput(classChoice);
+    player->SetClass(*playerClass);
 
-    system("cls");
+    // create enemy character and give it a random class
+    std::shared_ptr<OpponentCharacter> opponent = std::make_shared<OpponentCharacter>();
+    opponentClass = classManager->GetRandomClass();
+    opponent->SetClass(*opponentClass);
+
+    std::cin.get();
+
+    //system("cls");
     std::cout << "What's the height of the field? (In units)\n";
     std::cin >> sizeYChoice;
 
@@ -33,11 +45,8 @@ void GameManager::CreateNewGame()
     if (AreFieldInputsValid(sizeXChoice, sizeYChoice))
     {
         // create battlefield
-        std::shared_ptr<BattleFieldManager> battlefieldManager = std::make_shared<BattleFieldManager>(sizeXChoice, sizeYChoice);
+        battlefieldManager = std::make_shared<BattleFieldManager>(sizeXChoice, sizeYChoice);
         battlefieldManager->CreateBattlefield();
-
-        // create turn manager
-        std::shared_ptr<TurnManager> turnManager = std::make_shared<TurnManager>();
 
         // get player's and opponent's respective initial cells
         std::shared_ptr<BattlefieldCell> playerCell = battlefieldManager->GetRandomCell();
@@ -58,30 +67,30 @@ void GameManager::CreateNewGame()
             ExecuteGame();
         } while (!gameOver);        
     }
-
-    
-    // execute turns
-        // each turn, each character can only execute one action (move, attack, regen health, etc)
 }
 
-void GameManager::CheckClassInput(int & input)
+void GameManager::CheckClassInput(int& input)
 {
     switch(input)
     {
         case 1:
         std::cout << "Selecting Paladin...\n";
+        playerClass = classManager->GetClassByClassID(CharacterClass::PaladinClass);
         break;
 
         case 2:
         std::cout << "Selecting Warrior...\n";
+        playerClass = classManager->GetClassByClassID(CharacterClass::WarriorClass);
         break;
 
         case 3:
         std::cout << "Selecting Cleric...\n";
+        playerClass = classManager->GetClassByClassID(CharacterClass::ClericClass);
         break;
 
         case 4:
         std::cout << "Selecting Archer...\n";
+        playerClass = classManager->GetClassByClassID(CharacterClass::ArcherClass);
         break;
 
         default:
@@ -97,7 +106,14 @@ bool GameManager::AreFieldInputsValid(int & X, int & Y)
     return true;
 }
 
+void GameManager::InitializeManagers()
+{
+    classManager = std::make_unique<ClassManager>();
+    turnManager = std::make_unique<TurnManager>();
+}
+
 void GameManager::ExecuteGame()
 {
-
+    // execute turns
+        // each turn, each character can only execute one action (move, attack, regen health, etc)
 }

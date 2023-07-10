@@ -1,9 +1,11 @@
+#pragma once
+
 #include "../Enums/Classes.h"
 
 class BaseClass
 {
 public:
-    BaseClass() = default;
+    BaseClass();
     ~BaseClass();
 
 protected:
@@ -12,7 +14,7 @@ protected:
     int speed{0};
     int range{0};
 
-    CharacterClass classIndex{CharacterClass::None};
+    CharacterClass classIndex{CharacterClass::NoneClass};
 
     virtual void ExecuteSpecialAction(){};
 
