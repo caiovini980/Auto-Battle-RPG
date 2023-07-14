@@ -3,6 +3,7 @@
 
 #include "./Enums/Turns.h"
 #include "./Classes/BaseClass.h"
+#include "./BattlefieldCell.h"
 
 class Character
 {
@@ -15,13 +16,19 @@ public:
     void Attack(const Character& CharacterAttacked);
     void TakeDamage(const float& DamageTaken);
     void SetClass(const BaseClass& selectedClass);
+    void SetPosition(const BattlefieldCell& cell);
+    BattlefieldCell* GetPosition();
+    
 
 private:
     float maxHealth{0};
     float currentHealth{0};
     float damage{0};
-    Turn actionTurn{Turn::TurnNone};
+
     BaseClass characterClass{};
+    BattlefieldCell position;
+
+    Turn actionTurn{Turn::TurnNone};
 
     void Die();
 };

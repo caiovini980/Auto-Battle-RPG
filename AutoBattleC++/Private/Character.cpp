@@ -42,9 +42,20 @@ void Character::SetStats(float & Health, float & Damage)
     maxHealth = Health;
     currentHealth = maxHealth;
     damage = Damage;
+
 }
 
 void Character::SetActionTurn(const Turn& ActionTurn)
 {
     actionTurn = ActionTurn;
+}
+
+void Character::SetPosition(const BattlefieldCell& cell)
+{
+    position = cell;
+}
+
+BattlefieldCell* Character::GetPosition()
+{
+    return &position;
 }
