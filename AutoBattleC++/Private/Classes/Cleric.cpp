@@ -6,6 +6,7 @@ Cleric::Cleric(/* args */)
     armour = 8;
     range = 5;
     speed = 1;
+    damage = 2;
 }
 
 Cleric::~Cleric()

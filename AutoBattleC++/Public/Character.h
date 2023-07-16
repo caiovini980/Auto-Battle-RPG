@@ -11,7 +11,7 @@ public:
     Character();
     ~Character();
 
-    void SetStats(float& Health, float& Damage);
+    void SetStats(const float& Health, const float& Damage);
     void SetActionTurn(const Turn& ActionTurn);
     void Attack(const Character& CharacterAttacked);
     void TakeDamage(const float& DamageTaken);

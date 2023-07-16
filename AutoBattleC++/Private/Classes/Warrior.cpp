@@ -6,6 +6,7 @@ Warrior::Warrior(/* args */)
     armour = 10;
     range = 1;
     speed = 1;
+    damage = 4;
 }
 
 Warrior::~Warrior()

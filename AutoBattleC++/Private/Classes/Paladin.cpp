@@ -6,6 +6,7 @@ Paladin::Paladin(/* args */)
     armour = 12;
     range = 1;
     speed = 1;
+    damage = 3;
 }
 
 Paladin::~Paladin()

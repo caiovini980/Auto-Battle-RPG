@@ -10,6 +10,9 @@ public:
     int xIndex;
     int yIndex;
 
+    void SetCellOccupation(bool isCellOccupied);
+    bool IsCellOccupied();
+
 private:
     bool isOccupied;
 };

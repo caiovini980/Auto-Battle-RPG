@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <cstdlib>
 
 #include "../Character.h"
 #include "../Enums/Classes.h"

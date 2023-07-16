@@ -27,8 +27,10 @@ void Character::TakeDamage(const float &DamageTaken)
 
 void Character::SetClass(const BaseClass& selectedClass)
 {
-    printf("Setting class as %f!\n", selectedClass);
+    printf("selectedClass health: %i\n", characterClass.GetBaseHealth());
     characterClass = selectedClass;
+    printf("selectedClass health: %i\n", characterClass.GetBaseHealth());
+    SetStats(characterClass.GetBaseHealth(), characterClass.GetBaseDamage());
 }
 
 void Character::Die()
@@ -36,7 +38,7 @@ void Character::Die()
     // Character Died! Game over!
 }
 
-void Character::SetStats(float & Health, float & Damage)
+void Character::SetStats(const float& Health, const float& Damage)
 {
     printf("Setting stats as:\tHealth: %f \tDamage: %f!\n", Health, Damage);
     maxHealth = Health;
