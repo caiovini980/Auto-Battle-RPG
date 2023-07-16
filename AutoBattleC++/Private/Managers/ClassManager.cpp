@@ -18,19 +18,19 @@ std::shared_ptr<BaseClass> ClassManager::GetClassByClassID(const CharacterClass 
 
     switch (classID)
     {
-    case WarriorClass:
+    case CharacterClass::WarriorClass:
         aux = std::make_shared<Warrior>();
         break;
 
-    case ArcherClass:
+    case CharacterClass::ArcherClass:
         aux = std::make_shared<Archer>();
         break;
 
-    case ClericClass:
+    case CharacterClass::ClericClass:
         aux = std::make_shared<Cleric>();
         break;
 
-    case PaladinClass:
+    case CharacterClass::PaladinClass:
         aux = std::make_shared<Paladin>();
         break;
 
@@ -43,8 +43,10 @@ std::shared_ptr<BaseClass> ClassManager::GetClassByClassID(const CharacterClass 
 }
 std::shared_ptr<BaseClass> ClassManager::GetRandomClass()
 {
-    int randomClass = 1 + (std::rand() % 4);
-    return GetClassByClassID(GetClassIdByInteger(randomClass));
+    // TODO: Change hardcode
+    int randomClassIndex = 1 + (std::rand() % 4);
+    CharacterClass randomClass = GetClassIdByInteger(randomClassIndex);
+    return GetClassByClassID(randomClass);
 }
 
 CharacterClass ClassManager::GetClassIdByInteger(const int &number)

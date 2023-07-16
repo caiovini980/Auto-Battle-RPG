@@ -6,6 +6,7 @@ Archer::Archer()
     armour = 8;
     range = 5;
     speed = 2;
+    damage = 1;
 }
 
 Archer::~Archer()

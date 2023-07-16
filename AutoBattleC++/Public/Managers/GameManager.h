@@ -36,6 +36,10 @@ private:
 
     void InitializeManagers();
     void ExecuteGame();
-    void CheckClassInput(int& input);
+    void GetChosenPlayerClass(int& input);
+    void CreateBattlefield(const int& sizeX, const int& sizeY);
+    void SetCharactersPosition();
+    void SetupPlayer();
+    void SetupOpponent();
 };
 
