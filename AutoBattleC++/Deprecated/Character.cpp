@@ -1,4 +1,4 @@
-#include "Grid.h"
+/*#include "Grid.h"
 #include "Character.h"
 #include "Types.h"
 #include "Character.h"
@@ -114,3 +114,4 @@ bool Character::CheckCloseTargets(Grid* battlefield)
 
 }
 
+*/

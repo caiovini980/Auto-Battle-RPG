@@ -139,17 +139,56 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AutoBattleC++.cpp" />
-    <ClCompile Include="BattleField.cpp" />
-    <ClCompile Include="Character.cpp" />
-    <ClCompile Include="Grid.cpp" />
-    <ClCompile Include="Types.cpp" />
+    <ClCompile Include="Deprecated\Character.cpp" />
+    <ClCompile Include="Deprecated\Grid.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Private\BattlefieldCell.cpp" />
+    <ClCompile Include="Private\Character.cpp" />
+    <ClCompile Include="Private\Classes\Archer.cpp" />
+    <ClCompile Include="Private\Classes\BaseClass.cpp" />
+    <ClCompile Include="Private\Classes\Cleric.cpp" />
+    <ClCompile Include="Private\Classes\Paladin.cpp" />
+    <ClCompile Include="Private\Classes\Warrior.cpp" />
+    <ClCompile Include="Private\Managers\BattleFieldManager.cpp" />
+    <ClCompile Include="Private\Managers\ClassManager.cpp" />
+    <ClCompile Include="Private\Managers\GameManager.cpp" />
+    <ClCompile Include="Private\Managers\TurnManager.cpp" />
+    <ClCompile Include="Private\OpponentCharacter.cpp" />
+    <ClCompile Include="Private\PlayerCharacter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BattleField.h" />
-    <ClInclude Include="Character.h" />
-    <ClInclude Include="Grid.h" />
-    <ClInclude Include="Types.h" />
+    <ClInclude Include="Deprecated\Character.h" />
+    <ClInclude Include="Deprecated\Grid.h" />
+    <ClInclude Include="Public\BattlefieldCell.h" />
+    <ClInclude Include="Public\Character.h" />
+    <ClInclude Include="Public\Classes\Archer.h" />
+    <ClInclude Include="Public\Classes\BaseClass.h" />
+    <ClInclude Include="Public\Classes\Cleric.h" />
+    <ClInclude Include="Public\Classes\Paladin.h" />
+    <ClInclude Include="Public\Classes\Warrior.h" />
+    <ClInclude Include="Public\Enums\Classes.h" />
+    <ClInclude Include="Public\Enums\Turns.h" />
+    <ClInclude Include="Public\Managers\BattlefieldManager.h" />
+    <ClInclude Include="Public\Managers\ClassManager.h" />
+    <ClInclude Include="Public\Managers\GameManager.h" />
+    <ClInclude Include="Public\Managers\TurnManager.h" />
+    <ClInclude Include="Public\OpponentCharacter.h" />
+    <ClInclude Include="Public\PlayerCharacter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".vs\AutoBattleC++\FileContentIndex\1dea8f84-fb64-4625-b8f8-c794b1e07e14.vsidx" />
+    <None Include=".vs\AutoBattleC++\FileContentIndex\5062408f-44e7-4298-b42e-5430fcfc8815.vsidx" />
+    <None Include=".vs\AutoBattleC++\FileContentIndex\868d2a9a-b0fa-4847-8a4a-ccb9b75055b3.vsidx" />
+    <None Include=".vs\AutoBattleC++\FileContentIndex\read.lock" />
+    <None Include=".vs\AutoBattleC++\v17\Browse.VC.db" />
+    <None Include=".vs\AutoBattleC++\v17\ipch\AutoPCH\64619f976358e089\MAIN.ipch" />
+    <None Include=".vs\ProjectSettings.json" />
+    <None Include=".vs\slnx.sqlite" />
+    <None Include=".vs\VSWorkspaceState.json" />
+    <None Include="AutoBattle.exe" />
+    <None Include="Debug\AutoBattleC++.tlog\AutoBattleC++.lastbuildstate" />
+    <None Include="Debug\AutoBattleC++.tlog\CL.command.1.tlog" />
+    <None Include="Debug\AutoBattleC++.tlog\unsuccessfulbuild" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

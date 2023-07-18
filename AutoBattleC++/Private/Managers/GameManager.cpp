@@ -21,8 +21,10 @@ void GameManager::ExecuteGame()
 {
     // execute turns
         // each turn, each character can only execute one action (move, attack, regen health, etc)
+
+    
     system("cls");
-    battlefieldManager->UpdateBattlefield();
+    battlefieldManager->UpdateBattlefield("P", "O");
     std::cin.get();
 }
 
@@ -48,7 +50,6 @@ void GameManager::SetupPlayer()
         return; 
     }
 
-
     player->SetClass(*playerClass);
     printf("player created\n");
 
@@ -61,7 +62,7 @@ void GameManager::SetupPlayer()
     player->SetPosition(*playerCell);
 
     // set player position as occupied
-    battlefieldManager->SetCellOccupation(*playerCell, true);
+    battlefieldManager->SetCellOccupation(*playerCell, true, true);
 }
 
 void GameManager::SetupOpponent()
@@ -80,7 +81,7 @@ void GameManager::SetupOpponent()
     opponent->SetPosition(*opponentCell);
     
     // set opponent position as occupied
-    battlefieldManager->SetCellOccupation(*opponentCell, true);
+    battlefieldManager->SetCellOccupation(*opponentCell, true, false);
 }
 
 void GameManager::GetChosenPlayerClass(int& input)

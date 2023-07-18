@@ -38,10 +38,10 @@ void BattleFieldManager::CreateBattlefield()
     PrintVector(freeCells);
 }
 
-void BattleFieldManager::SetCellOccupation(BattlefieldCell& cell, bool isOccupied)
+void BattleFieldManager::SetCellOccupation(BattlefieldCell& cell, bool isOccupied, bool isPlayer)
 {
     //printf("Setting cell at position [%i, %i] as occupied? %d\n\n", cell.xIndex, cell.yIndex, isOccupied);
-    cell.SetCellOccupation(isOccupied);
+    cell.SetCellOccupation(isOccupied, isPlayer);
 
     if (isOccupied)
     {
@@ -60,7 +60,7 @@ void BattleFieldManager::SetCellOccupation(BattlefieldCell& cell, bool isOccupie
     PrintVector(freeCells);
 }
 
-void BattleFieldManager::UpdateBattlefield()
+void BattleFieldManager::UpdateBattlefield(const char* PlayerIndicator, const char* OpponentIndicator)
 {
     for (int columnIndex = 0; columnIndex < amountOfColumns; columnIndex++) // X
     {
@@ -76,7 +76,14 @@ void BattleFieldManager::UpdateBattlefield()
                 {
                     if (battlefield[i]->IsCellOccupied())
                     {
-                        printf("[X]\t");
+                        if (battlefield[i]->IsOccupiedByPlayer())
+                        {
+                            printf("[%c]\t", *PlayerIndicator);
+                        }
+                        else
+                        {
+                            printf("[%c]\t", *OpponentIndicator);
+                        }
                     }
                     else
                     {

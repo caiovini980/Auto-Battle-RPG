@@ -16,11 +16,11 @@ void TurnManager::ExecuteTurn()
 
 void TurnManager::ChangeTurn()
 {
-    if (currentTurn == PlayerTurn)
+    if (currentTurn == Turn::PlayerTurn)
     {
-        currentTurn = OpponentTurn;
+        currentTurn = Turn::OpponentTurn;
     } else {
-        currentTurn = PlayerTurn;
+        currentTurn = Turn::PlayerTurn;
     }
 }
 
@@ -31,9 +31,9 @@ Turn TurnManager::GetRandomTurn()
     switch (random)
     {
     case 1:
-        return PlayerTurn;
+        return Turn::PlayerTurn;
     case 2:
-        return OpponentTurn;
+        return Turn::OpponentTurn;
     default:
         break;
     }

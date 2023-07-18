@@ -10,9 +10,11 @@ public:
     int xIndex;
     int yIndex;
 
-    void SetCellOccupation(bool isCellOccupied);
+    void SetCellOccupation(bool isCellOccupied, bool isPlayer);
     bool IsCellOccupied();
+    bool IsOccupiedByPlayer();
 
 private:
-    bool isOccupied;
+    bool isOccupied{false};
+    bool havePlayer{false};
 };

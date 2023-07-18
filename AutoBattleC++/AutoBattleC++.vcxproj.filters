@@ -15,34 +15,121 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AutoBattleC++.cpp">
+    <ClCompile Include="Private\PlayerCharacter.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Grid.cpp">
+    <ClCompile Include="Private\BattlefieldCell.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="BattleField.cpp">
+    <ClCompile Include="Private\Character.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Character.cpp">
+    <ClCompile Include="Private\OpponentCharacter.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Types.cpp">
+    <ClCompile Include="Private\Managers\TurnManager.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Managers\BattleFieldManager.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Managers\ClassManager.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Managers\GameManager.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Classes\Archer.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Classes\BaseClass.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Classes\Cleric.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Classes\Paladin.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Private\Classes\Warrior.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Deprecated\Character.cpp">
+      <Filter>Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Deprecated\Grid.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Grid.h">
+    <ClInclude Include="Public\BattlefieldCell.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="BattleField.h">
+    <ClInclude Include="Public\Character.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Character.h">
+    <ClInclude Include="Public\OpponentCharacter.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Types.h">
+    <ClInclude Include="Public\PlayerCharacter.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="Public\Managers\BattlefieldManager.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Managers\ClassManager.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Managers\GameManager.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Managers\TurnManager.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Enums\Classes.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Enums\Turns.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Classes\Archer.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Classes\BaseClass.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Classes\Cleric.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Classes\Paladin.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Public\Classes\Warrior.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Deprecated\Grid.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Deprecated\Character.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AutoBattle.exe" />
+    <None Include="Debug\AutoBattleC++.tlog\unsuccessfulbuild" />
+    <None Include="Debug\AutoBattleC++.tlog\AutoBattleC++.lastbuildstate" />
+    <None Include="Debug\AutoBattleC++.tlog\CL.command.1.tlog" />
+    <None Include=".vs\VSWorkspaceState.json" />
+    <None Include=".vs\ProjectSettings.json" />
+    <None Include=".vs\slnx.sqlite" />
+    <None Include=".vs\AutoBattleC++\v17\ipch\AutoPCH\64619f976358e089\MAIN.ipch" />
+    <None Include=".vs\AutoBattleC++\v17\Browse.VC.db" />
+    <None Include=".vs\AutoBattleC++\FileContentIndex\1dea8f84-fb64-4625-b8f8-c794b1e07e14.vsidx" />
+    <None Include=".vs\AutoBattleC++\FileContentIndex\868d2a9a-b0fa-4847-8a4a-ccb9b75055b3.vsidx" />
+    <None Include=".vs\AutoBattleC++\FileContentIndex\5062408f-44e7-4298-b42e-5430fcfc8815.vsidx" />
+    <None Include=".vs\AutoBattleC++\FileContentIndex\read.lock" />
   </ItemGroup>
 </Project>

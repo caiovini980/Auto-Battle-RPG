@@ -1,4 +1,4 @@
-#include "Grid.h"
+/*#include "Grid.h"
 #include "Types.h"
 
 
@@ -46,3 +46,4 @@ void Grid::drawBattlefield(int Lines, int Columns)
     }
     printf("\n");
 }
+*/

@@ -14,8 +14,8 @@ public:
     ~BattleFieldManager();
 
 	void CreateBattlefield();
-	void SetCellOccupation(BattlefieldCell& cell, bool isOccupied);
-	void UpdateBattlefield();
+	void SetCellOccupation(BattlefieldCell& cell, bool isOccupied, bool isPlayer);
+	void UpdateBattlefield(const char* PlayerIndicator, const char* OpponentIndicator);
 	std::shared_ptr<BattlefieldCell> GetRandomCell();
 
 private:

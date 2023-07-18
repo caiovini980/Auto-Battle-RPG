@@ -8,12 +8,18 @@ BattlefieldCell::BattlefieldCell(int & xPosition, int & yPosition, bool occupied
 BattlefieldCell::~BattlefieldCell()
 {
 }
-void BattlefieldCell::SetCellOccupation(bool isCellOccupied)
+void BattlefieldCell::SetCellOccupation(bool isCellOccupied, bool isPlayer)
 {
     isOccupied = isCellOccupied;
+    havePlayer = isPlayer;
 }
 
 bool BattlefieldCell::IsCellOccupied()
 {
     return isOccupied;
+}
+
+bool BattlefieldCell::IsOccupiedByPlayer()
+{
+    return havePlayer;
 }

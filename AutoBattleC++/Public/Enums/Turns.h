@@ -1,6 +1,6 @@
 #pragma once
 
-enum Turn
+enum class Turn
 {
     TurnNone = 0,
     PlayerTurn = 1,

@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include <Vector>
 #include "Types.h"
 
@@ -17,5 +17,5 @@ public:
     
     // prints the matrix that indicates the tiles of the battlefield
     void drawBattlefield(int Lines, int Columns);
-};
+};*/
 
