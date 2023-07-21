@@ -9,17 +9,14 @@ TurnManager::~TurnManager()
 {
 }
 
-void TurnManager::ExecuteTurn()
-{
-    ChangeTurn();
-}
-
-void TurnManager::ChangeTurn()
+void TurnManager::ChangeTurn() 
 {
     if (currentTurn == Turn::PlayerTurn)
     {
         currentTurn = Turn::OpponentTurn;
-    } else {
+    } 
+    else 
+    {
         currentTurn = Turn::PlayerTurn;
     }
 }

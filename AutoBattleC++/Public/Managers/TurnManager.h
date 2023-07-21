@@ -9,14 +9,13 @@ class TurnManager
 public:
     TurnManager(/* args */);
     ~TurnManager();
-
-    void ExecuteTurn();
+ 
+    void ChangeTurn();
     Turn GetCurrentTurn();
 
 private:
     Turn currentTurn{};
 
     Turn GetRandomTurn();
-    void ChangeTurn();
 };
 
