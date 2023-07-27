@@ -1,5 +1,4 @@
 #include "../Public/Character.h"
-#include "Classes/BaseClass.cpp"
 
 Character::Character()
 {

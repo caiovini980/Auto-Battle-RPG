@@ -139,8 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Deprecated\Character.cpp" />
-    <ClCompile Include="Deprecated\Grid.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Private\BattlefieldCell.cpp" />
     <ClCompile Include="Private\Character.cpp" />
@@ -157,8 +155,6 @@
     <ClCompile Include="Private\PlayerCharacter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Deprecated\Character.h" />
-    <ClInclude Include="Deprecated\Grid.h" />
     <ClInclude Include="Public\BattlefieldCell.h" />
     <ClInclude Include="Public\Character.h" />
     <ClInclude Include="Public\Classes\Archer.h" />
@@ -185,7 +181,6 @@
     <None Include=".vs\ProjectSettings.json" />
     <None Include=".vs\slnx.sqlite" />
     <None Include=".vs\VSWorkspaceState.json" />
-    <None Include="AutoBattle.exe" />
     <None Include="Debug\AutoBattleC++.tlog\AutoBattleC++.lastbuildstate" />
     <None Include="Debug\AutoBattleC++.tlog\CL.command.1.tlog" />
     <None Include="Debug\AutoBattleC++.tlog\unsuccessfulbuild" />

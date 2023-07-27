@@ -5,10 +5,19 @@
 class Warrior : public BaseClass
 {
 public:
-    Warrior(/* args */);
-    ~Warrior();
+    Warrior(/* args */)
+    {
+        health = 25;
+        armour = 10;
+        range = 1;
+        speed = 1;
+        damage = 4;
+    }
 
-    virtual void ExecuteSpecialAction() override;
+    ~Warrior() {}
+
+    void ExecuteSpecialAction() override {};
+
 private:
     /* data */
 };

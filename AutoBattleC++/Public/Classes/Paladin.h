@@ -8,7 +8,7 @@ public:
     Paladin(/* args */);
     ~Paladin();
 
-    virtual void ExecuteSpecialAction() override;
+    void ExecuteSpecialAction() override;
 private:
     /* data */
 };

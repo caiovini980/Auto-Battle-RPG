@@ -1,6 +1,6 @@
-#include "../../Public/Classes/Warrior.h"
+/*#include "../../Public/Classes/Warrior.h"
 
-Warrior::Warrior(/* args */)
+Warrior::Warrior()
 {
     health = 25;
     armour = 10;
@@ -11,8 +11,9 @@ Warrior::Warrior(/* args */)
 
 Warrior::~Warrior()
 {
+
 }
 void Warrior::ExecuteSpecialAction()
 {
     // leap attack
-}
+}*/

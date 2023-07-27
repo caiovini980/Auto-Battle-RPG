@@ -1,8 +1,4 @@
 #include "../../Public/Managers/ClassManager.h"
-#include "../Classes/Archer.cpp"
-#include "../Classes/Cleric.cpp"
-#include "../Classes/Paladin.cpp"
-#include "../Classes/Warrior.cpp"
 
 ClassManager::ClassManager()
 {

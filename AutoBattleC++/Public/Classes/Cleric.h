@@ -8,7 +8,7 @@ public:
     Cleric(/* args */);
     ~Cleric();
 
-    virtual void ExecuteSpecialAction() override;
+    void ExecuteSpecialAction() override;
 private:
     /* data */
 };

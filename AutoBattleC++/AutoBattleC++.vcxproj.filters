@@ -57,12 +57,6 @@
     <ClCompile Include="Main.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="Deprecated\Character.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
-    <ClCompile Include="Deprecated\Grid.cpp">
-      <Filter>Arquivos de Origem</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Public\BattlefieldCell.h">
@@ -110,15 +104,8 @@
     <ClInclude Include="Public\Classes\Warrior.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Deprecated\Grid.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
-    <ClInclude Include="Deprecated\Character.h">
-      <Filter>Arquivos de Cabeçalho</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="AutoBattle.exe" />
     <None Include="Debug\AutoBattleC++.tlog\unsuccessfulbuild" />
     <None Include="Debug\AutoBattleC++.tlog\AutoBattleC++.lastbuildstate" />
     <None Include="Debug\AutoBattleC++.tlog\CL.command.1.tlog" />

@@ -1,26 +1,7 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1098,5): warning MSB8027: Two or more files with the name of Character.cpp will produce outputs to the same location. This can lead to an incorrect build result.  The files involved are Deprecated\Character.cpp, Private\Character.cpp.
-  Character.cpp
-  Grid.cpp
+﻿  Character.cpp
+C:\Users\User\source\repos\caiovini980\Auto-Battle-RPG\AutoBattleC++\Private\Character.cpp(32,74): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+C:\Users\User\source\repos\caiovini980\Auto-Battle-RPG\AutoBattleC++\Private\Character.cpp(32,42): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+  ClassManager.cpp
   Generating Code...
-x64\Debug\Character.obj : warning LNK4042: object specified more than once; extras ignored
-ClassManager.obj : error LNK2005: "public: __cdecl Archer::Archer(void)" (??0Archer@@QEAA@XZ) already defined in Archer.obj
-ClassManager.obj : error LNK2005: "public: __cdecl Cleric::Cleric(void)" (??0Cleric@@QEAA@XZ) already defined in Cleric.obj
-ClassManager.obj : error LNK2005: "public: __cdecl Paladin::Paladin(void)" (??0Paladin@@QEAA@XZ) already defined in Paladin.obj
-ClassManager.obj : error LNK2005: "public: __cdecl Warrior::Warrior(void)" (??0Warrior@@QEAA@XZ) already defined in Warrior.obj
-ClassManager.obj : error LNK2005: "public: __cdecl Archer::~Archer(void)" (??1Archer@@QEAA@XZ) already defined in Archer.obj
-ClassManager.obj : error LNK2005: "public: __cdecl Cleric::~Cleric(void)" (??1Cleric@@QEAA@XZ) already defined in Cleric.obj
-ClassManager.obj : error LNK2005: "public: __cdecl Paladin::~Paladin(void)" (??1Paladin@@QEAA@XZ) already defined in Paladin.obj
-ClassManager.obj : error LNK2005: "public: __cdecl Warrior::~Warrior(void)" (??1Warrior@@QEAA@XZ) already defined in Warrior.obj
-ClassManager.obj : error LNK2005: "public: virtual void __cdecl Archer::ExecuteSpecialAction(void)" (?ExecuteSpecialAction@Archer@@UEAAXXZ) already defined in Archer.obj
-ClassManager.obj : error LNK2005: "public: virtual void __cdecl Cleric::ExecuteSpecialAction(void)" (?ExecuteSpecialAction@Cleric@@UEAAXXZ) already defined in Cleric.obj
-ClassManager.obj : error LNK2005: "public: virtual void __cdecl Paladin::ExecuteSpecialAction(void)" (?ExecuteSpecialAction@Paladin@@UEAAXXZ) already defined in Paladin.obj
-ClassManager.obj : error LNK2005: "public: virtual void __cdecl Warrior::ExecuteSpecialAction(void)" (?ExecuteSpecialAction@Warrior@@UEAAXXZ) already defined in Warrior.obj
-GameManager.obj : error LNK2019: unresolved external symbol "public: void __cdecl Character::SetClass(class BaseClass const &)" (?SetClass@Character@@QEAAXAEBVBaseClass@@@Z) referenced in function "private: void __cdecl GameManager::SetupOpponent(void)" (?SetupOpponent@GameManager@@AEAAXXZ)
-GameManager.obj : error LNK2019: unresolved external symbol "public: void __cdecl Character::SetPosition(class BattlefieldCell const &)" (?SetPosition@Character@@QEAAXAEBVBattlefieldCell@@@Z) referenced in function "private: void __cdecl GameManager::SetupOpponent(void)" (?SetupOpponent@GameManager@@AEAAXXZ)
-OpponentCharacter.obj : error LNK2019: unresolved external symbol "public: __cdecl Character::Character(void)" (??0Character@@QEAA@XZ) referenced in function "public: __cdecl OpponentCharacter::OpponentCharacter(void)" (??0OpponentCharacter@@QEAA@XZ)
-PlayerCharacter.obj : error LNK2001: unresolved external symbol "public: __cdecl Character::Character(void)" (??0Character@@QEAA@XZ)
-OpponentCharacter.obj : error LNK2019: unresolved external symbol "public: __cdecl Character::~Character(void)" (??1Character@@QEAA@XZ) referenced in function "int `public: __cdecl OpponentCharacter::OpponentCharacter(void)'::`1'::dtor$0" (?dtor$0@?0???0OpponentCharacter@@QEAA@XZ@4HA)
-PlayerCharacter.obj : error LNK2001: unresolved external symbol "public: __cdecl Character::~Character(void)" (??1Character@@QEAA@XZ)
-OpponentCharacter.obj : error LNK2019: unresolved external symbol "public: void __cdecl Character::SetActionTurn(enum Turn const &)" (?SetActionTurn@Character@@QEAAXAEBW4Turn@@@Z) referenced in function "public: __cdecl OpponentCharacter::OpponentCharacter(void)" (??0OpponentCharacter@@QEAA@XZ)
-PlayerCharacter.obj : error LNK2001: unresolved external symbol "public: void __cdecl Character::SetActionTurn(enum Turn const &)" (?SetActionTurn@Character@@QEAAXAEBW4Turn@@@Z)
-C:\Users\User\source\repos\caiovini980\Auto-Battle-RPG\x64\Debug\AutoBattleC++.exe : fatal error LNK1120: 5 unresolved externals
+C:\Users\User\source\repos\caiovini980\Auto-Battle-RPG\AutoBattleC++\Private\Managers\ClassManager.cpp(67): warning C4715: 'ClassManager::GetClassIdByInteger': not all control paths return a value
+  AutoBattleC++.vcxproj -> C:\Users\User\source\repos\caiovini980\Auto-Battle-RPG\x64\Debug\AutoBattleC++.exe

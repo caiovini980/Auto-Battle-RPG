@@ -1,5 +1,4 @@
 #pragma once
-
 #include "../Enums/Classes.h"
 
 class BaseClass
@@ -8,11 +7,13 @@ public:
     BaseClass();
     ~BaseClass();
 
-    int GetBaseArmour();
-    int GetBaseHealth();
-    int GetBaseSpeed();
-    int GetBaseRange();
-    int GetBaseDamage();
+    int GetBaseArmour() { return this->armour; }
+    int GetBaseHealth() { return this->health; }
+    int GetBaseSpeed() { return this->speed; }
+    int GetBaseRange() { return this->range; }
+    int GetBaseDamage() { return this->damage; }
+
+    
 
 protected:
     int armour{0};
@@ -21,9 +22,8 @@ protected:
     int range{0};
     int damage{0};
 
-    CharacterClass classIndex{CharacterClass::NoneClass};
+    CharacterClass classIndex{ CharacterClass::NoneClass };
 
-    virtual void ExecuteSpecialAction(){};
-
+    virtual void ExecuteSpecialAction() { }
 private:
 };

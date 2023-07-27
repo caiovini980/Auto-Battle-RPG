@@ -8,7 +8,7 @@ public:
     Archer();
     ~Archer();
 
-    virtual void ExecuteSpecialAction() override;
+    void ExecuteSpecialAction() override;
 private:
 };
 
