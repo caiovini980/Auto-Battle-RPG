@@ -3,6 +3,8 @@
 #include <memory>
 #include <iostream>
 #include <vector>
+
+#include "../Character.h"
 #include "../BattlefieldCell.h"
 
 class BattleFieldManager
@@ -16,6 +18,9 @@ public:
 	void CreateBattlefield();
 	void SetCellOccupation(BattlefieldCell& cell, bool isOccupied, bool isPlayer);
 	void UpdateBattlefield(const char* PlayerIndicator, const char* OpponentIndicator);
+	
+	bool AreCharactersClose(Character& characterA, Character& characterB);
+
 	std::shared_ptr<BattlefieldCell> GetRandomCell();
 
 private:

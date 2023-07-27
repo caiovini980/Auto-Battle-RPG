@@ -11,6 +11,7 @@ public:
     ~TurnManager();
  
     void ChangeTurn();
+
     Turn GetCurrentTurn();
 
 private:

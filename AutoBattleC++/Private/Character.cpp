@@ -84,7 +84,14 @@ void Character::Move(int& xDirection, int& yDirection)
     }
 }
 
+// TODO - Change this to smart pointer
 BattlefieldCell* Character::GetPosition()
 {
     return &position;
+}
+
+// TODO - Change this to smart pointer
+BaseClass* Character::GetClass()
+{
+    return &characterClass;
 }

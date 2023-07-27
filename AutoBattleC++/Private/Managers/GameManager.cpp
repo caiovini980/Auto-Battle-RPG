@@ -19,13 +19,53 @@ void GameManager::InitializeManagers()
 
 void GameManager::ExecuteGame()
 {
-    // execute turns
-        // each turn, each character can only execute one action (move, attack, regen health, etc)
-
-    
     system("cls");
+
+    printf("current turn is: %i\n", turnManager->GetCurrentTurn());
+    // execute turns
+    if (turnManager->GetCurrentTurn() == Turn::PlayerTurn)
+    {
+        ExecutePlayerTurn();
+    }
+    else
+    {
+        // execute opponent turn
+        ExecuteOpponentTurn();
+    }
+
     battlefieldManager->UpdateBattlefield("P", "O");
+    turnManager->ChangeTurn();
     std::cin.get();
+}
+
+void GameManager::ExecuteOpponentTurn()
+{
+    // if is close to player
+    if (battlefieldManager->AreCharactersClose(*opponent, *player))
+    {
+        // attack
+        printf("Opponent attack!\n");
+    }
+    else
+    {
+        // else, move towards the player
+        printf("Opponent moves towards the player...\n");
+    }
+}
+
+void GameManager::ExecutePlayerTurn()
+{
+    // if is close to opponent
+    if (battlefieldManager->AreCharactersClose(*player, *opponent))
+    {
+        // attack
+        printf("Player attack!\n");
+    }
+    else
+    {
+        // else, move towards the opponent
+        printf("Player moves towards the opponent...\n");
+    }
 }
 
 void GameManager::CreateBattlefield(const int& sizeX, const int& sizeY)
@@ -50,7 +90,8 @@ void GameManager::SetupPlayer()
         return; 
     }
 
-    player->SetClass(*playerClass);
+    this->player = player;
+    this->player->SetClass(*playerClass);
     printf("player created\n");
 
     // Get a cell for the player
@@ -59,7 +100,7 @@ void GameManager::SetupPlayer()
     
     // set player on cell
     printf("Player cell at point [%i, %i]\n\n", playerCell->xIndex, playerCell->yIndex);
-    player->SetPosition(*playerCell);
+    this->player->SetPosition(*playerCell);
 
     // set player position as occupied
     battlefieldManager->SetCellOccupation(*playerCell, true, true);
@@ -71,14 +112,15 @@ void GameManager::SetupOpponent()
     std::shared_ptr<OpponentCharacter> opponent = std::make_shared<OpponentCharacter>();
     opponentClass = classManager->GetRandomClass();
 
-    opponent->SetClass(*opponentClass);
+    this->opponent = opponent;
+    this->opponent->SetClass(*opponentClass);
 
     // Get a cell for the opponent
     std::shared_ptr<BattlefieldCell> opponentCell = battlefieldManager->GetRandomCell();
     if (opponentCell == nullptr) { printf("opponent cell is null\n"); }
 
     printf("Opponent cell at point [%i, %i]\n\n", opponentCell->xIndex, opponentCell->yIndex);
-    opponent->SetPosition(*opponentCell);
+    this->opponent->SetPosition(*opponentCell);
     
     // set opponent position as occupied
     battlefieldManager->SetCellOccupation(*opponentCell, true, false);

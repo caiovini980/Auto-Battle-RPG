@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <memory>
 
 #include "./Enums/Turns.h"
 #include "./Classes/BaseClass.h"
@@ -26,7 +27,9 @@ public:
         y = 1 -> go up
         y = -1 -> go down
     */
+
     BattlefieldCell* GetPosition();
+    BaseClass* GetClass();
     
 
 private:
@@ -34,7 +37,7 @@ private:
     float currentHealth{0};
     float damage{0};
 
-    BaseClass characterClass{};
+    BaseClass characterClass;
     BattlefieldCell position;
 
     Turn actionTurn{Turn::TurnNone};

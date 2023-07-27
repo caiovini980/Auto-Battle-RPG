@@ -3,6 +3,7 @@
 #include <string>
 #include <memory>
 #include <cstdlib>
+#include <vector>
 
 #include "BattlefieldManager.h"
 #include "TurnManager.h"
@@ -30,6 +31,9 @@ private:
     std::shared_ptr<BaseClass> playerClass;
     std::shared_ptr<BaseClass> opponentClass;
 
+    std::shared_ptr<PlayerCharacter> player;
+    std::shared_ptr<OpponentCharacter> opponent;
+
     bool gameOver{false};   
 
     bool AreFieldInputsValid(int& X, int& Y);
@@ -41,5 +45,7 @@ private:
     void SetCharactersPosition();
     void SetupPlayer();
     void SetupOpponent();
+    void ExecutePlayerTurn();
+    void ExecuteOpponentTurn();
 };
 

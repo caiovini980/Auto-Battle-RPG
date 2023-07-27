@@ -141,40 +141,23 @@ void BattleFieldManager::PrintVector(const std::vector<BattlefieldCell> &vector)
     }
 }
 
+bool BattleFieldManager::AreCharactersClose(Character& characterA, Character& characterB)
+{
+    int rangeA = characterA.GetClass()->GetBaseRange();
+    int rangeB = characterB.GetClass()->GetBaseRange();
 
-// void BattleFieldManager::AddFreeCell(const BattlefieldCell &cell)
-// {
-//     freeCells.insert(freeCells.begin() + 1, cell);
-// }
+    BattlefieldCell* cellA = characterA.GetPosition();
+    BattlefieldCell* cellB = characterB.GetPosition();
 
-// void BattleFieldManager::AddOccupiedCell(const BattlefieldCell &cell)
-// {
-//     occupiedCells.insert(occupiedCells.begin() + 1, cell);
-// }
+    // check range for attack on 4 directions
+    if (cellA->xIndex + rangeA >= cellB->xIndex ||          // right
+        cellA->xIndex + rangeA >= cellB->yIndex ||          // up
+        cellA->yIndex - rangeA <= cellB->xIndex ||          // left
+        cellA->xIndex - rangeA <= cellB->yIndex)            // down
+    {
+        printf("Characters are close enought to attack\n");
+        return true;
+    }
 
-// void BattleFieldManager::RemoveFreeCell(const BattlefieldCell &cell)
-// {
-//     // go through every free cell
-//     // check if it's the passed cell
-//     // if yes, remove it from the vector
-//     for (int i  = 0; i < freeCells.size(); i++)
-//     {
-//         if (cell.xIndex == freeCells[i].xIndex && cell.yIndex == freeCells[i].yIndex)
-//         {
-//             freeCells.erase(freeCells.begin() + i);
-//             return;
-//         }
-//     }
-// }
-
-// void BattleFieldManager::RemoveOccupiedCell(const BattlefieldCell &cell)
-// {
-//     for (int i  = 0; i < occupiedCells.size(); i++)
-//     {
-//         if (cell.xIndex == occupiedCells[i].xIndex && cell.yIndex == occupiedCells[i].yIndex)
-//         {
-//             occupiedCells.erase(occupiedCells.begin() + i);
-//             return;
-//         }
-//     }
-// }
+    return false;
+}
