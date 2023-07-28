@@ -1,4 +1,4 @@
-/*#include "../../Public/Classes/Warrior.h"
+#include "../../Public/Classes/Warrior.h"
 
 Warrior::Warrior()
 {
@@ -16,4 +16,4 @@ Warrior::~Warrior()
 void Warrior::ExecuteSpecialAction()
 {
     // leap attack
-}*/
+}

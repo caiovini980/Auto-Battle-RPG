@@ -4,7 +4,7 @@ Cleric::Cleric(/* args */)
 {
     health = 15;
     armour = 8;
-    range = 5;
+    range = 1;
     speed = 1;
     damage = 2;
 }

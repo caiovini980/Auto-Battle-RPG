@@ -4,7 +4,7 @@ Archer::Archer()
 {
     health = 15;
     armour = 8;
-    range = 5;
+    range = 2;
     speed = 2;
     damage = 1;
 }

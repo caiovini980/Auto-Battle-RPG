@@ -62,9 +62,9 @@ void BattleFieldManager::SetCellOccupation(BattlefieldCell& cell, bool isOccupie
 
 void BattleFieldManager::UpdateBattlefield(const char* PlayerIndicator, const char* OpponentIndicator)
 {
-    for (int columnIndex = 0; columnIndex < amountOfColumns; columnIndex++) // X
+    for (int lineIndex = 0; lineIndex < amountOfLines; lineIndex++) // Y
     {
-        for (int lineIndex = 0; lineIndex < amountOfLines; lineIndex++) // Y
+        for (int columnIndex = 0; columnIndex < amountOfColumns; columnIndex++) // X
         {
             // get cell
             // if it's occupied, print [X]
@@ -150,10 +150,10 @@ bool BattleFieldManager::AreCharactersClose(Character& characterA, Character& ch
     BattlefieldCell* cellB = characterB.GetPosition();
 
     // check range for attack on 4 directions
-    if (cellA->xIndex + rangeA >= cellB->xIndex ||          // right
-        cellA->xIndex + rangeA >= cellB->yIndex ||          // up
-        cellA->yIndex - rangeA <= cellB->xIndex ||          // left
-        cellA->xIndex - rangeA <= cellB->yIndex)            // down
+    if (cellA->xIndex + rangeA >= cellB->xIndex && cellA->yIndex == cellB->yIndex ||    // come from the right
+        cellA->yIndex + rangeA >= cellB->yIndex && cellA->xIndex == cellB->xIndex ||    // come from the top
+        cellA->xIndex - rangeA <= cellB->xIndex && cellA->yIndex == cellB->yIndex ||    // come from the left
+        cellA->yIndex - rangeA <= cellB->yIndex && cellA->xIndex == cellB->xIndex)      // come from the bottom
     {
         printf("Characters are close enought to attack\n");
         return true;
