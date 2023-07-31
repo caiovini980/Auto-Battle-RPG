@@ -40,8 +40,13 @@ void BattleFieldManager::CreateBattlefield()
 
 void BattleFieldManager::SetCellOccupation(BattlefieldCell& cell, bool isOccupied, bool isPlayer)
 {
-    //printf("Setting cell at position [%i, %i] as occupied? %d\n\n", cell.xIndex, cell.yIndex, isOccupied);
-    cell.SetCellOccupation(isOccupied, isPlayer);
+    for (std::shared_ptr<BattlefieldCell> battlefieldCell : battlefield)
+    {
+        if (battlefieldCell->xIndex == cell.xIndex && battlefieldCell->yIndex == cell.yIndex)
+        {
+            battlefieldCell->SetCellOccupation(isOccupied, isPlayer);
+        }
+    }
 
     if (isOccupied)
     {
@@ -53,22 +58,16 @@ void BattleFieldManager::SetCellOccupation(BattlefieldCell& cell, bool isOccupie
         RemoveFromVector(cell, occupiedCells);
         AddOnVector(cell, freeCells);
     }
-    
-    printf("OCCUPIED CELLS: \n");
-    PrintVector(occupiedCells);
-    printf("FREE CELLS: \n");
-    PrintVector(freeCells);
 }
 
 void BattleFieldManager::UpdateBattlefield(const char* PlayerIndicator, const char* OpponentIndicator)
 {
+    int number{ 0 };
+
     for (int lineIndex = 0; lineIndex < amountOfLines; lineIndex++) // Y
     {
         for (int columnIndex = 0; columnIndex < amountOfColumns; columnIndex++) // X
         {
-            // get cell
-            // if it's occupied, print [X]
-            // if it's free, print [ ]
             for (int i = 0; i < battlefield.size(); i++)
             {
                 if (battlefield[i]->xIndex == columnIndex &&
@@ -78,16 +77,21 @@ void BattleFieldManager::UpdateBattlefield(const char* PlayerIndicator, const ch
                     {
                         if (battlefield[i]->IsOccupiedByPlayer())
                         {
+                            number++;
                             printf("[%c]\t", *PlayerIndicator);
+                            break;
                         }
                         else
                         {
+                            number++;
                             printf("[%c]\t", *OpponentIndicator);
+                            break;
                         }
                     }
                     else
                     {
                         printf("[ ]\t");
+                        break;
                     }
                 }
             }
@@ -95,6 +99,8 @@ void BattleFieldManager::UpdateBattlefield(const char* PlayerIndicator, const ch
 
         printf("\n\n\n");
     }
+
+    printf("Numbero de celulas ocupadas do battlefield %i", number);
 }
 
 std::shared_ptr<BattlefieldCell> BattleFieldManager::GetRandomCell()
@@ -107,6 +113,19 @@ std::shared_ptr<BattlefieldCell> BattleFieldManager::GetRandomCell()
 
         if (cell->xIndex == freeCells[randomFreeCellIndex].xIndex && 
             cell->yIndex == freeCells[randomFreeCellIndex].yIndex)
+        {
+            return cell;
+        }
+    }
+
+    return nullptr;
+}
+
+std::shared_ptr<BattlefieldCell> BattleFieldManager::GetCellAtPosition(int xPosition, int yPosition)
+{
+    for (std::shared_ptr<BattlefieldCell> cell : battlefield)
+    {
+        if (cell->xIndex == xPosition && cell->yIndex == yPosition)
         {
             return cell;
         }
@@ -160,4 +179,56 @@ bool BattleFieldManager::AreCharactersClose(Character& characterA, Character& ch
     }
 
     return false;
+}
+
+std::shared_ptr<Directions> BattleFieldManager::GetDirectionToMoveCharacterToTarget(Character& character, BattlefieldCell& target)
+{
+    // (x, y)
+    // (1, 0) -> Move right
+    // (-1, 0) -> Move left
+    // (0, 1) -> Move up
+    // (0, -1) -> Move down
+
+    std::shared_ptr<Directions> directions = std::make_shared<Directions>();
+    BattlefieldCell* originalPosition = character.GetPosition();
+
+    // MOVE VERTICALLY
+    if (originalPosition->yIndex != target.yIndex)
+    {
+        if (originalPosition->yIndex > target.yIndex)
+        {
+            directions->y = -1;
+        }
+
+        else if (originalPosition->yIndex < target.yIndex)
+        {
+            directions->y = 1;
+        }
+
+        else
+        {
+            directions->y = 0;
+        }
+    }
+
+    // MOVE HORIZONTALLY
+    if (originalPosition->xIndex != target.xIndex)
+    {
+        if (originalPosition->xIndex > target.xIndex)
+        {
+            directions->x = -1;
+        }
+
+        else if (originalPosition->xIndex < target.xIndex)
+        {
+            directions->x = 1;
+        }
+
+        else
+        {
+            directions->x = 0;
+        }
+    }
+
+    return directions;
 }

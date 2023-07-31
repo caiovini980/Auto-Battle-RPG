@@ -18,7 +18,6 @@ public:
     void TakeDamage(const float& DamageTaken);
     void SetClass(const BaseClass& selectedClass);
     void SetPosition(const BattlefieldCell& cell);
-    virtual void Move(int& xDirection, int& yDirection); 
     /*
         x || y = 0 -> dont move on this direction
 

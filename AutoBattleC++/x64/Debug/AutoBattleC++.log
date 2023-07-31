@@ -1,7 +1,2 @@
-﻿  Character.cpp
-C:\Users\User\source\repos\caiovini980\Auto-Battle-RPG\AutoBattleC++\Private\Character.cpp(32,74): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-C:\Users\User\source\repos\caiovini980\Auto-Battle-RPG\AutoBattleC++\Private\Character.cpp(32,42): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
-  ClassManager.cpp
-  Generating Code...
-C:\Users\User\source\repos\caiovini980\Auto-Battle-RPG\AutoBattleC++\Private\Managers\ClassManager.cpp(67): warning C4715: 'ClassManager::GetClassIdByInteger': not all control paths return a value
+﻿  BattleFieldManager.cpp
   AutoBattleC++.vcxproj -> C:\Users\User\source\repos\caiovini980\Auto-Battle-RPG\x64\Debug\AutoBattleC++.exe

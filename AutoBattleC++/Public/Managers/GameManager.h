@@ -42,7 +42,6 @@ private:
     void ExecuteGame();
     void GetChosenPlayerClass(int& input);
     void CreateBattlefield(const int& sizeX, const int& sizeY);
-    void SetCharactersPosition();
     void SetupPlayer();
     void SetupOpponent();
     void ExecutePlayerTurn();

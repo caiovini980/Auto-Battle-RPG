@@ -53,34 +53,7 @@ void Character::SetActionTurn(const Turn& ActionTurn)
 
 void Character::SetPosition(const BattlefieldCell& cell)
 {
-    position = cell;
-}
-
-void Character::Move(int& xDirection, int& yDirection)
-{
-    if (xDirection != 0)
-    {
-        if (xDirection > 0)
-        {
-            // go right
-        }
-        else if (xDirection < 0)
-        {
-            // go left
-        }
-    }
-    
-    else if (yDirection != 0)
-    {
-        if (yDirection > 0)
-        {
-            // go up
-        }
-        else if (yDirection < 0)
-        {
-            // go down
-        }
-    }
+    position = cell; 
 }
 
 // TODO - Change this to smart pointer

@@ -20,7 +20,6 @@ void GameManager::InitializeManagers()
 void GameManager::ExecuteGame()
 {
     system("cls");
-
     printf("current turn is: %i\n", turnManager->GetCurrentTurn());
     // execute turns
     if (turnManager->GetCurrentTurn() == Turn::PlayerTurn)
@@ -35,7 +34,6 @@ void GameManager::ExecuteGame()
 
     battlefieldManager->UpdateBattlefield("P", "O");
     turnManager->ChangeTurn();
-    std::cin.get();
 }
 
 void GameManager::ExecuteOpponentTurn()
@@ -50,6 +48,22 @@ void GameManager::ExecuteOpponentTurn()
     {
         // else, move towards the player
         printf("Opponent moves towards the player...\n");
+        std::shared_ptr<Directions> directions = battlefieldManager->GetDirectionToMoveCharacterToTarget(*opponent, *player->GetPosition());
+
+        int newCellXPosition = opponent->GetPosition()->xIndex + directions->x;
+        int newCellYPosition = opponent->GetPosition()->yIndex + directions->y;
+
+        // get new cell
+        std::shared_ptr<BattlefieldCell> newCell = battlefieldManager->GetCellAtPosition(newCellXPosition, newCellYPosition);
+
+        // move to the new cell
+        if (newCell == nullptr) { return; }
+
+        printf("Removed opponent position from [%i, %i]\n", opponent->GetPosition()->xIndex, opponent->GetPosition()->yIndex);
+
+        battlefieldManager->SetCellOccupation(*opponent->GetPosition(), false, false);
+        opponent->SetPosition(*newCell);
+        battlefieldManager->SetCellOccupation(*opponent->GetPosition(), true, false);
     }
 }
 
@@ -65,6 +79,21 @@ void GameManager::ExecutePlayerTurn()
     {
         // else, move towards the opponent
         printf("Player moves towards the opponent...\n");
+        std::shared_ptr<Directions> directions = battlefieldManager->GetDirectionToMoveCharacterToTarget(*player, *opponent->GetPosition());
+
+        int newCellXPosition = player->GetPosition()->xIndex + directions->x;
+        int newCellYPosition = player->GetPosition()->yIndex + directions->y;
+
+        // get new cell
+        std::shared_ptr<BattlefieldCell> newCell = battlefieldManager->GetCellAtPosition(newCellXPosition, newCellYPosition);
+
+        // move to the new cell
+        if (newCell == nullptr) { return; }
+
+        printf("Removed player position from [%i, %i]\n", player->GetPosition()->xIndex, player->GetPosition()->yIndex);
+        battlefieldManager->SetCellOccupation(*player->GetPosition(), false, false);
+        player->SetPosition(*newCell);
+        battlefieldManager->SetCellOccupation(*player->GetPosition(), true, true);
     }
 }
 
@@ -192,7 +221,9 @@ void GameManager::CreateNewGame()
         // execute game
         do
         {
+            std::cin.get();
             ExecuteGame();
+            printf("\n\n\nPlayer Position: [%i, %i] \tOpponent Position: [%i, %i]\n", player->GetPosition()->xIndex, player->GetPosition()->yIndex, opponent->GetPosition()->xIndex, opponent->GetPosition()->yIndex);
         } while (!gameOver);        
     }
     else

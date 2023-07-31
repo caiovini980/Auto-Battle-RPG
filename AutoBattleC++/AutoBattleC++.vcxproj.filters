@@ -104,6 +104,9 @@
     <ClInclude Include="Public\Classes\Warrior.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
+    <ClInclude Include="Public\Structs\DirectionsStruct.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Debug\AutoBattleC++.tlog\unsuccessfulbuild" />

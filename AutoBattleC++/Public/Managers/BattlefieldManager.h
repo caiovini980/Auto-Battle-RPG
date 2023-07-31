@@ -3,9 +3,11 @@
 #include <memory>
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #include "../Character.h"
 #include "../BattlefieldCell.h"
+#include "../Structs/DirectionsStruct.h"
 
 class BattleFieldManager
 {
@@ -20,8 +22,10 @@ public:
 	void UpdateBattlefield(const char* PlayerIndicator, const char* OpponentIndicator);
 	
 	bool AreCharactersClose(Character& characterA, Character& characterB);
+	std::shared_ptr<Directions> GetDirectionToMoveCharacterToTarget(Character& character, BattlefieldCell& target);
 
 	std::shared_ptr<BattlefieldCell> GetRandomCell();
+	std::shared_ptr<BattlefieldCell> GetCellAtPosition(int xPosition, int yPosition);
 
 private:
 	int amountOfColumns{}; // X

@@ -170,6 +170,7 @@
     <ClInclude Include="Public\Managers\TurnManager.h" />
     <ClInclude Include="Public\OpponentCharacter.h" />
     <ClInclude Include="Public\PlayerCharacter.h" />
+    <ClInclude Include="Public\Structs\DirectionsStruct.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".vs\AutoBattleC++\FileContentIndex\1dea8f84-fb64-4625-b8f8-c794b1e07e14.vsidx" />
