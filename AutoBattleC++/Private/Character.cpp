@@ -8,20 +8,51 @@ Character::~Character()
 {
 }
 
-void Character::Attack(const Character& CharacterAttacked)
+void Character::Attack(Character& CharacterAttacked)
 {
+    if (isDead) 
+    { 
+        printf("Character already dead!\n");
+        return; 
+    }
+
     // if pass character armour, CharacterAttacked takes damage
+    int attackChance = 1 + (rand() % 20);
+
+    if (attackChance > CharacterAttacked.GetClass()->GetBaseArmour())
+    {
+        if (attackChance >= 19)
+        {
+            printf("CRITICAL HIT!\n");
+            CharacterAttacked.TakeDamage(characterClass.GetBaseDamage() * 2);
+            return;
+        }
+
+        printf("HIT!\n");
+        CharacterAttacked.TakeDamage(characterClass.GetBaseDamage());
+        return;
+    }
+
+    printf("MISSED!\n");
 }
 
 void Character::TakeDamage(const float &DamageTaken)
 {
-    if (currentHealth > 0)
+    currentHealth -= DamageTaken;
+    if (*GetActionTurn() == Turn::PlayerTurn)
     {
-        currentHealth -= DamageTaken;
-        return;
+        printf("Player health is: %f\n", currentHealth);
     }
-    
-    Die();
+    else
+    {
+        printf("Opponent health is: %f\n", currentHealth);
+    }
+
+    if (currentHealth <= 0)
+    {
+        currentHealth = 0;
+        Die();
+    }
 }
 
 void Character::SetClass(const BaseClass& selectedClass)
@@ -30,11 +61,14 @@ void Character::SetClass(const BaseClass& selectedClass)
     characterClass = selectedClass;
     printf("selectedClass health: %i\n", characterClass.GetBaseHealth());
     SetStats(characterClass.GetBaseHealth(), characterClass.GetBaseDamage());
+    isDead = false;
 }
 
 void Character::Die()
 {
     // Character Died! Game over!
+    printf("Character DIED!\n");
+    isDead = true;
 }
 
 void Character::SetStats(const float& Health, const float& Damage)
@@ -43,7 +77,6 @@ void Character::SetStats(const float& Health, const float& Damage)
     maxHealth = Health;
     currentHealth = maxHealth;
     damage = Damage;
-
 }
 
 void Character::SetActionTurn(const Turn& ActionTurn)
@@ -56,6 +89,11 @@ void Character::SetPosition(const BattlefieldCell& cell)
     position = cell; 
 }
 
+bool Character::IsAlive()
+{
+    return !isDead;
+}
+
 // TODO - Change this to smart pointer
 BattlefieldCell* Character::GetPosition()
 {
@@ -66,4 +104,9 @@ BattlefieldCell* Character::GetPosition()
 BaseClass* Character::GetClass()
 {
     return &characterClass;
+}
+
+std::shared_ptr<Turn> Character::GetActionTurn()
+{
+    return std::make_shared<Turn>(actionTurn);
 }

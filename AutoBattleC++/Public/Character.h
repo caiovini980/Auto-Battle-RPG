@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <memory>
+#include <cstdlib>
 
 #include "./Enums/Turns.h"
 #include "./Classes/BaseClass.h"
@@ -14,27 +15,23 @@ public:
 
     void SetStats(const float& Health, const float& Damage);
     void SetActionTurn(const Turn& ActionTurn);
-    void Attack(const Character& CharacterAttacked);
+    void Attack(Character& CharacterAttacked);
     void TakeDamage(const float& DamageTaken);
     void SetClass(const BaseClass& selectedClass);
     void SetPosition(const BattlefieldCell& cell);
-    /*
-        x || y = 0 -> dont move on this direction
 
-        x = 1 -> go right
-        x = -1 -> go left
-        y = 1 -> go up
-        y = -1 -> go down
-    */
+    bool IsAlive();
 
     BattlefieldCell* GetPosition();
     BaseClass* GetClass();
+    std::shared_ptr<Turn> GetActionTurn();
     
 
 private:
     float maxHealth{0};
     float currentHealth{0};
     float damage{0};
+    bool isDead{ false };
 
     BaseClass characterClass;
     BattlefieldCell position;

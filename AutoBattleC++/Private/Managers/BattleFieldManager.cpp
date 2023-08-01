@@ -62,8 +62,6 @@ void BattleFieldManager::SetCellOccupation(BattlefieldCell& cell, bool isOccupie
 
 void BattleFieldManager::UpdateBattlefield(const char* PlayerIndicator, const char* OpponentIndicator)
 {
-    int number{ 0 };
-
     for (int lineIndex = 0; lineIndex < amountOfLines; lineIndex++) // Y
     {
         for (int columnIndex = 0; columnIndex < amountOfColumns; columnIndex++) // X
@@ -77,13 +75,11 @@ void BattleFieldManager::UpdateBattlefield(const char* PlayerIndicator, const ch
                     {
                         if (battlefield[i]->IsOccupiedByPlayer())
                         {
-                            number++;
                             printf("[%c]\t", *PlayerIndicator);
                             break;
                         }
                         else
                         {
-                            number++;
                             printf("[%c]\t", *OpponentIndicator);
                             break;
                         }
@@ -99,8 +95,6 @@ void BattleFieldManager::UpdateBattlefield(const char* PlayerIndicator, const ch
 
         printf("\n\n\n");
     }
-
-    printf("Numbero de celulas ocupadas do battlefield %i", number);
 }
 
 std::shared_ptr<BattlefieldCell> BattleFieldManager::GetRandomCell()

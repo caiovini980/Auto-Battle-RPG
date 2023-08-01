@@ -46,5 +46,6 @@ private:
     void SetupOpponent();
     void ExecutePlayerTurn();
     void ExecuteOpponentTurn();
+    void ExecuteCharacterMovement(Character& actionCharacter, Character& otherCharacter);
 };
 
