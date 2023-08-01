@@ -15,5 +15,5 @@ Warrior::~Warrior()
 }
 void Warrior::ExecuteSpecialAction()
 {
-    // leap attack
+    // stronger attack
 }

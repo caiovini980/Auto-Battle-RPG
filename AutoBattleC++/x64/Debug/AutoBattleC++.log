@@ -1,2 +1,4 @@
-﻿  GameManager.cpp
+﻿  BattleFieldManager.cpp
+  PlayerCharacter.cpp
+  Generating Code...
   AutoBattleC++.vcxproj -> C:\Users\User\source\repos\caiovini980\Auto-Battle-RPG\x64\Debug\AutoBattleC++.exe

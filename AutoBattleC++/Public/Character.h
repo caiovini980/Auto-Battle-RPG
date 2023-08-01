@@ -22,8 +22,8 @@ public:
 
     bool IsAlive();
 
-    BattlefieldCell* GetPosition();
-    BaseClass* GetClass();
+    std::shared_ptr<BattlefieldCell> GetPosition();
+    std::shared_ptr<BaseClass> GetClass();
     std::shared_ptr<Turn> GetActionTurn();
     
 

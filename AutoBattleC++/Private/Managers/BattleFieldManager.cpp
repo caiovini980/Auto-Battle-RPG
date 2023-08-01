@@ -159,8 +159,8 @@ bool BattleFieldManager::AreCharactersClose(Character& characterA, Character& ch
     int rangeA = characterA.GetClass()->GetBaseRange();
     int rangeB = characterB.GetClass()->GetBaseRange();
 
-    BattlefieldCell* cellA = characterA.GetPosition();
-    BattlefieldCell* cellB = characterB.GetPosition();
+    std::shared_ptr<BattlefieldCell> cellA = characterA.GetPosition();
+    std::shared_ptr<BattlefieldCell> cellB = characterB.GetPosition();
 
     // check range for attack on 4 directions
     if (cellA->xIndex + rangeA >= cellB->xIndex && cellA->yIndex == cellB->yIndex ||    // come from the right
@@ -184,7 +184,7 @@ std::shared_ptr<Directions> BattleFieldManager::GetDirectionToMoveCharacterToTar
     // (0, -1) -> Move down
 
     std::shared_ptr<Directions> directions = std::make_shared<Directions>();
-    BattlefieldCell* originalPosition = character.GetPosition();
+    std::shared_ptr<BattlefieldCell> originalPosition = character.GetPosition();
 
     // MOVE VERTICALLY
     if (originalPosition->yIndex != target.yIndex)

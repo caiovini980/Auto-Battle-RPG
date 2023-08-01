@@ -94,16 +94,16 @@ bool Character::IsAlive()
     return !isDead;
 }
 
-// TODO - Change this to smart pointer
-BattlefieldCell* Character::GetPosition()
+// TODO - Change this to smart pointer 
+std::shared_ptr<BattlefieldCell> Character::GetPosition()
 {
-    return &position;
+    return std::make_shared<BattlefieldCell>(position);
 }
 
 // TODO - Change this to smart pointer
-BaseClass* Character::GetClass()
+std::shared_ptr<BaseClass> Character::GetClass()
 {
-    return &characterClass;
+    return std::make_shared<BaseClass>(characterClass);
 }
 
 std::shared_ptr<Turn> Character::GetActionTurn()
